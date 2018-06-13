@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:b="http://bootsfaces.net/ui" 
+				template="./template/maintemplate.xhtml">
+				
+	<ui:define name="topJumbo">
+		Details: #{buchHandler.getBuchByISBN(param['isbn13']).buchtitel}
+	</ui:define>
+	<ui:define name="bottomJumbo">
+		<b:row>
+			<b:column span="3">
+				<b:row><img height="350px" src="./img/book2.jpg"/></b:row>
+			</b:column>
+			<b:column span="9">
+				<b:row><h4> Autor: 		#{buchHandler.getBuchByISBN(param['isbn13']).autor}</h4></b:row>
+				<b:row><h4> Kategorie:	#{buchHandler.getBuchByISBN(param['isbn13']).kategorie}</h4></b:row>
+				<b:row><h4> Buchart:	#{buchHandler.getBuchByISBN(param['isbn13']).buchart}</h4></b:row>
+				<b:row><h4> Verlag:		#{buchHandler.getBuchByISBN(param['isbn13']).verlag}</h4></b:row>
+				<b:row><h4> Sprache:	#{buchHandler.getBuchByISBN(param['isbn13']).sprache}</h4></b:row>
+				<b:row><h4> ISBN-10:	#{buchHandler.getBuchByISBN(param['isbn13']).isbn10}</h4></b:row>
+				<b:row><h4> ISBN-13:	#{buchHandler.getBuchByISBN(param['isbn13']).isbn13}</h4></b:row>
+				<b:row><h4> Höhe:		#{buchHandler.getBuchByISBN(param['isbn13']).hoehe}</h4></b:row>
+				<b:row><h4> Breite:		#{buchHandler.getBuchByISBN(param['isbn13']).breite}</h4></b:row>
+			   	<b:row><h4> Tiefe:		#{buchHandler.getBuchByISBN(param['isbn13']).tiefe}</h4></b:row>
+				<b:row><h4> Preis:		#{buchHandler.getBuchByISBN(param['isbn13']).preis}</h4></b:row>
+			</b:column>
+		</b:row>
+		<b:row>
+			<b:column span="3"> 
+				<b:row><b:button value="Warenkorb" look="primary"/></b:row>
+			</b:column>
+			<b:column span="9">
+				<b:row><h4>Buchdetails:	#{buchHandler.getBuchByISBN(param['isbn13']).buchdetails}</h4></b:row>
+			</b:column>
+		</b:row>
+	</ui:define>
+</ui:composition>

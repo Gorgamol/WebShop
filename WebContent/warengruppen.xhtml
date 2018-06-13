@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:b="http://bootsfaces.net/ui" 
+				template="./template/maintemplate.xhtml">
+				
+	<ui:define name="topJumbo">
+		Bücher aus der Kategorie: <h:outputText value="#{param['kategorie']}" style="text-transform: capitalize;"/>
+	</ui:define>
+	<ui:define name="bottomJumbo">
+		<ui:repeat var="buch" value="#{buchHandler.getBuchliste(param['kategorie'])}">
+				<h:form>
+			      <table class="table table-striped" width="100%">
+			           <tr>
+			            <td width="20%"><a href="detailseite.jsf?isbn13=#{buch.isbn13}"><img height="100px" src="./img/book2.jpg"/></a></td>
+			            <td width="20%">#{buch.buchtitel}</td>
+			            <td width="20%">#{buch.autor}</td>
+			            <td width="20%">#{buch.preis}</td>
+						<td width="20%"><b:button value="+" look="primary"/></td>
+			          </tr>
+			      </table>
+			     </h:form>
+		</ui:repeat>
+	</ui:define>
+</ui:composition>

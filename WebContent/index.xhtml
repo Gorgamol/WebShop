@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:b="http://bootsfaces.net/ui" 
+				template="./template/maintemplate.xhtml">
+				
+	<ui:define name="topJumbo">Willkommen in unserem Webshop für Bücher!</ui:define>
+	<ui:define name="bottomJumbo">
+			<b:panel title="Buchreview des Tages!" collapsible="false">
+				<b:row>
+				  <b:image value="./img/book1.jpg" span="2"/>
+				  <b:column span="1"/>
+				  <b:column span="9">
+					  <p>Dies wäre ein Text für eine Buchreview des Tages!<br/>Hier würden einige Dinge über
+					  	 dieses super tolle Buch stehen! Zum Beispiel folgende: <br/> - Eigenschaft 1
+					  	 <br/> - Eigenschaft 2 <br/><br/>Hier könnten noch andere Dinge stehen!</p>
+				  </b:column>
+				</b:row>
+			</b:panel>
+			<b:panel title="Unsere Bestseller!" collapsible="false">
+				<b:row>
+				  <b:image value="./img/book1.jpg" span="3"/>
+
+				  <b:image value="./img/book2.jpg" span="3"/>
+
+				  <b:image value="./img/book3.jpg" span="3"/>
+				  <b:image value="./img/book4.jpg" span="3"/>
+				</b:row>
+			</b:panel>
+	</ui:define>
+</ui:composition>

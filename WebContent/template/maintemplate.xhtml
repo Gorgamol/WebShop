@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+      
+
+	<h:head>
+		<title>WebShop</title>
+	</h:head>
+	
+	<h:body>
+		    <b:navBar inverse="true">
+	            <b:navbarLinks pull="left">
+	                <b:navLink value="Home" href="index.jsf" active="true" iconAwesome="home"></b:navLink>
+					<b:dropMenu value="Kategorien" iconAwesome="book">
+				      <b:navLink value="Fantasy" href="warengruppen.jsf?kategorie=fantasy"></b:navLink>
+				      <b:navLink value="Krimi" href="warengruppen.jsf?kategorie=krimi"></b:navLink>
+				      <b:navLink value="Sachbuch" href="warengruppen.jsf?kategorie=sachbuch"></b:navLink>
+	    			</b:dropMenu>
+	    		</b:navbarLinks>
+	    		<b:navbarLinks pull="right">
+	                <b:navLink value="Warenkorb" href="#" iconAwesome="shopping-cart"></b:navLink>
+	                <b:navLink value="Login" href="#" iconAwesome="user"></b:navLink>
+	            </b:navbarLinks>
+	        </b:navBar>
+	
+			<b:container>
+		            <b:jumbotron>
+		            	<h2><ui:insert name="topJumbo">PageDescription</ui:insert></h2>
+		            </b:jumbotron>
+					<b:jumbotron>
+						<ui:insert name="bottomJumbo">MainPageContent</ui:insert>
+					</b:jumbotron>
+		        </b:container>
+	</h:body>
+</html>
