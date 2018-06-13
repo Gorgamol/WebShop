@@ -5,14 +5,18 @@ import de.imut.ec.keyvaluestore.KeyValueStore;
 public class Datenbank {
 	KeyValueStore kvs;
 	String key;
+	String keyKunde;
 	Gson gson;
 	
 	public Datenbank() {
 		kvs = new KeyValueStore();
 		key = "DavidPatrickChristopher123456";
+		keyKunde = "DavidPatrick_Kunden";
 		if(kvs.get(key) == null) {
-			System.out.println("DATENBANK LEER STRING REINGEHAUEN"); 
 			kvs.put(key, "Buchliste:");
+		}
+		if(kvs.get(keyKunde) == null) {
+			kvs.put(keyKunde, "Kundenliste:");
 		}
 	}
 	
@@ -20,7 +24,6 @@ public class Datenbank {
 		gson = new Gson();
 		String jsonString = gson.toJson(buch);
 		kvs.put(key, kvs.get(key) + "-" + jsonString);
-		System.out.println(jsonString);
 		return jsonString;
 	}
 
@@ -29,6 +32,19 @@ public class Datenbank {
 			return true;
 		}
 		return false;
+	}
+	
+	public boolean contains(Kunde kunde) {
+		if(kvs.get(keyKunde).contains("tel\":\"" + kunde.getTel())) {
+			return true;
+		}
+		return false;
+	}
+	
+	public void addKunde(Kunde kunde) {
+		gson = new Gson();
+		String jsonString = gson.toJson(kunde);
+		kvs.put(keyKunde, kvs.get(keyKunde) + "-" + jsonString);
 	}
 	
 	public String getDatenbankInhalt() {

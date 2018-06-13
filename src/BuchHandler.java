@@ -3,20 +3,30 @@ import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
 import com.google.gson.Gson;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class BuchHandler implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	private Gson gson;
 	private DataModel<Buch> buchliste;
 	private String[] tmpBuchliste;
+	private String currentBook;
 	
+	public String getCurrentBook() {
+		return currentBook;
+	}
+
+	public void setCurrentBook(String currentBook) {
+		this.currentBook = currentBook;
+	}
+
 	public BuchHandler() {
 			Datenbank datenbank = new Datenbank();
 			gson = new Gson();
