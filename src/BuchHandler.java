@@ -2,7 +2,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -36,7 +35,7 @@ public class BuchHandler implements Serializable {
 	public DataModel<Buch> getBuchliste(String kategorie) {
 		ArrayList<Buch> buchByKategorie = new ArrayList<Buch>();
 		for(String s : tmpBuchliste) {
-			if(s.contains("\"kategorie\":\"" + kategorie)) {
+			if((s.contains("\"kategorie\":\"" + kategorie)) && (kategorie.length() > 1)) {
 				buchByKategorie.add(gson.fromJson(s, Buch.class));
 			}
 		}

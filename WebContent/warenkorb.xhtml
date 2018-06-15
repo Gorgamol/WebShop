@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:b="http://bootsfaces.net/ui" 
+				template="./template/maintemplate.xhtml">
+				
+	<ui:define name="topJumbo">Ihr Warenkorb!</ui:define>
+	<ui:define name="bottomJumbo">
+		<ui:repeat var="isbn" value="#{kundenHandler.isbnListe}">
+				<h:form>
+			      <table class="table table-striped" width="100%">
+			           <tr>
+			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).buchtitel}</td>
+			            <td width="20%">
+			            	<b:commandButton value="-" action="#{kundenHandler.decrementOrder(isbn)}" look="primary" />
+			            		#{kundenHandler.warenkorb[isbn]}
+			            	<b:commandButton value="+" action="#{kundenHandler.incrementOrder(isbn)}" look="primary" />			            
+			            </td>
+			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).preis}</td>
+			          </tr>
+			      </table>
+			     </h:form>
+		</ui:repeat>
+		<h:form>
+			<b:row>
+				<b:column span="6"/>
+				<b:column span="6">
+					<b:commandButton value="Bestätigen" action="bestellformular.jsf" look="primary" />
+				</b:column>
+			</b:row>
+		</h:form>
+	</ui:define>
+</ui:composition>

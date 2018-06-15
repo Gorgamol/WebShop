@@ -30,7 +30,7 @@
 		</b:row>
 		<b:row>
 			<b:column span="3"> 
-				<b:row><h:form><b:commandButton value="Warenkorb" actionListener="#{kundenHandler.addToBasket(buchHandler.currentBook, 2)}" look="primary" update="@none"/></h:form></b:row>
+				<b:row><h:form><b:commandButton value="Warenkorb" actionListener="#{kundenHandler.addToBasket(buchHandler.currentBook, 1)}" look="primary" update="@none"/></h:form></b:row>
 			</b:column>
 			<b:column span="9">
 				<b:row><h4>Buchdetails:	#{buchHandler.getBuchByISBN(param['isbn13']).buchdetails}</h4></b:row>

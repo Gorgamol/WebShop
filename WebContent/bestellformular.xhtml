@@ -1,0 +1,164 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+				xmlns:h="http://java.sun.com/jsf/html" 
+				xmlns:f="http://java.sun.com/jsf/core"
+				xmlns:ui="http://java.sun.com/jsf/facelets"
+				xmlns:b="http://bootsfaces.net/ui"
+				xmlns:p="http://xmlns.jcp.org/jsf/passthrough" 
+				template="./template/maintemplate.xhtml">
+				
+	<ui:define name="topJumbo">Bitte füllen Sie das Formular aus!</ui:define>
+	<ui:define name="bottomJumbo">
+			<h:form>
+				<b:row>
+					<b:column>
+						<h:selectOneMenu value="#{kundenHandler.kunde.anrede}">
+						<f:selectItem itemValue ="Herr" itemLabel ="Herr" />
+						<f:selectItem itemValue ="Frau" itemLabel ="Frau" />
+						</h:selectOneMenu>	
+					</b:column>		
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column span="6">
+						<h:inputText id="Vorname" type="text" value="#{kundenHandler.kunde.name}" p:placeholder="Vorname" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Vorname eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Vorname"/>
+					</b:column>
+					<b:column span="6">
+						<h:inputText id="Nachname" type="text" value="#{kundenHandler.kunde.nachname}" p:placeholder="Nachname" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Nachname eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Nachname"/>				
+					</b:column>
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column span="6">
+						<h:inputText id="Straße" type="text" value="#{kundenHandler.kunde.straße}" p:placeholder="Straße" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Straße eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Straße"/>
+					</b:column>
+					<b:column span="6">
+						<h:inputText id="Hausnummer" type="text" value="#{kundenHandler.kunde.hsnr}" p:placeholder="Hausnummer" validatorMessage="1-100 Zeichen!"
+						required="true" requiredMessage="Hausnummer eingeben!">
+							<f:validateLength minimum="1" maximum="100" />
+						</h:inputText>
+						<h:message for="Hausnummer"/>				
+					</b:column>
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column span="6">
+						<h:inputText id="PLZ" type="text" value="#{kundenHandler.kunde.plz}" p:placeholder="PLZ" validatorMessage="5 Zeichen!"
+						required="true" requiredMessage="PLZ eingeben!">
+							<f:validateLength minimum="5" maximum="5" />
+						</h:inputText>
+						<h:message for="PLZ"/>
+					</b:column>
+					<b:column span="6">
+						<h:inputText id="Ort" type="text" value="#{kundenHandler.kunde.ort}" p:placeholder="Ort" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Ort eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Ort"/>				
+					</b:column>
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column span="6">
+						<h:inputText id="Land" type="text" value="#{kundenHandler.kunde.land}" p:placeholder="Land" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Land eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Land"/>
+					</b:column>
+					<b:column span="6">
+						<h:inputText id="E-Mail" type="text" value="#{kundenHandler.kunde.email}" p:placeholder="E-Mail" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="E-Mail eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="E-Mail"/>				
+					</b:column>
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column>
+						<h:inputText id="Telefon" type="text" value="#{kundenHandler.kunde.tel}" p:placeholder="Telefon" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Telefon eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Telefon"/>					
+					</b:column>
+				</b:row>
+				<b:row></b:row>
+				<b:row>
+					<b:column>
+							<h:selectOneMenu value="#{kundenHandler.bezahlmethode}"
+									valueChangeListener="#{kundenHandler.changeBezahlmethode}" onchange="submit()" immediate="true">
+								<f:selectItem itemValue="lastschrift" itemLabel="lastschrift" />
+								<f:selectItem itemValue="kreditkarte" itemLabel="kreditkarte" />
+							</h:selectOneMenu>
+					</b:column>
+				</b:row>
+				<h:outputText rendered="#{kundenHandler.bezahlmethode eq 'lastschrift'}">
+				<b:row></b:row>
+				<b:row>
+					<b:column span="6">
+						<h:inputText id="Kontoinhaber" type="text" value="#{kundenHandler.kunde.kontoInhaber}" p:placeholder="Kontoinhaber" validatorMessage="3-100 Zeichen!"
+						required="true" requiredMessage="Kontoinhaber eingeben!">
+							<f:validateLength minimum="3" maximum="100" />
+						</h:inputText>
+						<h:message for="Kontoinhaber"/>
+					</b:column>
+					<b:column span="6">
+						<h:inputText id="IBAN" type="text" value="#{kundenHandler.kunde.iban}" p:placeholder="IBAN" validatorMessage="15-30 Zeichen!"
+						required="true" requiredMessage="IBAN eingeben!">
+							<f:validateLength minimum="15" maximum="30" />
+						</h:inputText>
+						<h:message for="IBAN"/>				
+					</b:column>
+				</b:row>				
+				</h:outputText>
+				<h:outputText rendered="#{kundenHandler.bezahlmethode eq 'kreditkarte'}">
+				<b:row></b:row>
+				<b:row>
+					<b:column span="4">
+						<h:inputText id="Karteninhaber" type="text" value="#{kundenHandler.kunde.kartenInhaber}" p:placeholder="Karteninhaber" validatorMessage="1-100 Zeichen!"
+						required="true" requiredMessage="Karteninhaber eingeben!">
+							<f:validateLength minimum="1" maximum="100" />
+						</h:inputText>
+						<h:message for="Karteninhaber"/>
+					</b:column>
+					<b:column span="4">
+						<h:inputText id="Kartennummer" type="text" value="#{kundenHandler.kunde.kartenNummer}" p:placeholder="Kartennummer" validatorMessage="1-100 Zeichen!"
+						required="true" requiredMessage="Kartennummer eingeben!">
+							<f:validateLength minimum="1" maximum="100" />
+						</h:inputText>
+						<h:message for="Kartennummer"/>				
+					</b:column>
+					<b:column span="4">
+						<h:inputText id="gültigbis" type="text" value="#{kundenHandler.kunde.karteGültig}" p:placeholder="Gültig bis MM/YYYY" validatorMessage="7 Zeichen!"
+						required="true" requiredMessage="Karte gültig bis: eingeben!">
+							<f:validateLength minimum="7" maximum="7" />
+						</h:inputText>
+						<h:message for="gültigbis"/>				
+					</b:column>
+				</b:row>				
+				</h:outputText>
+				<b:row>
+					<b:column span="6">
+						<b:button value="Zurück" look="primary" href="warenkorb.jsf" />
+					</b:column>
+					<b:column span="6">
+						<b:commandButton value="Absenden" look="primary" action="bestellübersicht.jsf"/>
+					</b:column>
+				</b:row>
+			</h:form>
+
+	</ui:define>
+</ui:composition>

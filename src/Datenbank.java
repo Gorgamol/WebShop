@@ -51,5 +51,14 @@ public class Datenbank {
 		return kvs.get(key);
 	}
 	
+	public String[] getKategorien() {
+		String[] tmpListe = kvs.get(key).substring(11).split("-");
+		String[] TESTOR = tmpListe[0].split("\"");
+		for(String s : TESTOR) {
+			System.out.println(s);
+		}
+		return null;
+	}
+	
 	
 }

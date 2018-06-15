@@ -11,7 +11,7 @@ public class Kunde {
 	String tel;
 	String email;
 	String kartenInhaber;
-	String kartenNummer; //kreditkarte
+	String kartenNummer;
 	String karteGültig;
 	String kontoInhaber;
 	String iban;
@@ -111,6 +111,6 @@ public class Kunde {
 		return bestellung;
 	}
 	public void setBestellung(String bestellung) {
-		this.bestellung += " - " + bestellung;
+		this.bestellung += bestellung;
 	}
 }
