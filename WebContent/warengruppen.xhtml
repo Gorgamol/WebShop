@@ -13,10 +13,11 @@
 				<h:form>
 			      <table class="table table-striped" width="100%">
 			           <tr>
-			            <td width="25%"><a href="detailseite.jsf?isbn13=#{buch.isbn13}"><img height="100px" src="./img/book2.jpg"/></a></td>
-			            <td width="25%">#{buch.buchtitel}</td>
-			            <td width="25%">#{buch.autor}</td>
-			            <td width="25%">#{buch.preis} EUR</td>
+			            <td width="20%"><a href="detailseite.jsf?isbn13=#{buch.isbn13}"><img height="100px" src="./img/book2.jpg"/></a></td>
+			            <td width="20%">#{buch.buchtitel}</td>
+			            <td width="20%">#{buch.autor}</td>
+			            <td width="20%">#{buch.preis}</td>
+						<td width="20%"><b:commandButton value=" + " action="#{kundenHandler.addToBasket2(buch.isbn13, 1, buch.kategorie)}" look="primary"/></td>
 			          </tr>
 			      </table>
 			     </h:form>

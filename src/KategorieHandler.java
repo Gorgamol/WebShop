@@ -2,12 +2,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import com.google.gson.Gson;
 
 @ManagedBean (name = "kategorieHandler")
-@RequestScoped
+@SessionScoped
 public class KategorieHandler implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

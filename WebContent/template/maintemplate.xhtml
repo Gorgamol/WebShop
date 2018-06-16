@@ -19,11 +19,14 @@
 						<ui:repeat value="#{kategorieHandler.kategorieListe}" var="kategorie">
 							<b:navLink value="#{kategorie}" href="warengruppen.jsf?kategorie=#{kategorie}"></b:navLink>
 				 		</ui:repeat>
+				      <!--  <b:navLink value="Fantasy" href="warengruppen.jsf?kategorie=fantasy"></b:navLink>
+				      <b:navLink value="Krimi" href="warengruppen.jsf?kategorie=krimi"></b:navLink>
+				      <b:navLink value="Sachbuch" href="warengruppen.jsf?kategorie=sachbuch"></b:navLink> -->
 	    			</b:dropMenu>
 	    		</b:navbarLinks>
 	    		<b:navbarLinks pull="right">
 	                <b:navLink value="Warenkorb" href="warenkorb.jsf" iconAwesome="shopping-cart"></b:navLink>
-	                <b:navLink value="Einstellungen" href="bucheingabe.html" iconAwesome="gear"></b:navLink>
+	                <b:navLink value="Login" href="#" iconAwesome="user"></b:navLink>
 	            </b:navbarLinks>
 	        </b:navBar>
 	
