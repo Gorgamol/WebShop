@@ -15,16 +15,24 @@
 			            <td width="20%">
 			            	<b:commandButton value="-" action="#{kundenHandler.decrementOrder(isbn)}" look="primary" />
 			            		#{kundenHandler.warenkorb[isbn]}
-			            	<b:commandButton value="+" action="#{kundenHandler.incrementOrder(isbn)}" look="primary" />			            
+			            	<b:commandButton value="+" action="#{kundenHandler.incrementOrder(isbn)}" look="primary" />
+			            	<b:commandButton value="x" action="#{kundenHandler.deleteOrder(isbn)}" look="primary" />			            
 			            </td>
-			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).preis}</td>
+			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).preis} EUR</td>
 			          </tr>
 			      </table>
 			     </h:form>
 		</ui:repeat>
+		<b:row>
+		 	<b:column offset="6">
+				<h2>Gesamtpreis: #{kundenHandler.getGesamtpreis()} EUR</h2>
+			</b:column>
+		</b:row>
 		<h:form>
 			<b:row>
-				<b:column span="6"/>
+				<b:column span="6">
+					<b:commandButton value="Warenkorb leeren" action="#{kundenHandler.clear()}" look="primary" />
+				</b:column>	
 				<b:column span="6">
 					<b:commandButton value="Bestätigen" action="bestellformular.jsf" look="primary" />
 				</b:column>

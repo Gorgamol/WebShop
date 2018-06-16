@@ -26,6 +26,17 @@ public class KundenHandler implements Serializable {
 		}
 	}
 	
+	public double getGesamtpreis() {
+		
+		double gesamtpreis = 0;
+		Datenbank datenbank = new Datenbank();
+		for(String s : warenkorb.keySet()) {
+			gesamtpreis += Double.parseDouble(datenbank.getBuchByISBN(s).getPreis()) * warenkorb.get(s);
+		}
+		
+		return gesamtpreis;
+	}
+	
 	public ArrayList<String> getIsbnListe() {
 		return isbnListe;
 	}
@@ -74,7 +85,7 @@ public class KundenHandler implements Serializable {
 		} else {
 			warenkorb.put(isbn13, warenkorb.get(isbn13) + 1);
 		}
-		System.out.println(warenkorb);
+		//System.out.println(warenkorb);
 	}
 	
 	public String addToBasket2(String isbn13, int anzahl, String kat) {
@@ -85,7 +96,7 @@ public class KundenHandler implements Serializable {
 			warenkorb.put(isbn13, warenkorb.get(isbn13) + 1);
 		}
 		System.out.println(warenkorb);
-		return "warengruppen.jsf?kategorie=" + kat;
+		return "warengruppen?kategorie=" + kat;
 	}
 	
 	public void incrementOrder(String isbn13) {
@@ -111,6 +122,7 @@ public class KundenHandler implements Serializable {
 
 	public void deleteOrder(String isbn13) {
 		warenkorb.remove(isbn13);
+		isbnListe.remove(isbn13);
 	}
 	
 	public String saveOrder() {
@@ -123,6 +135,11 @@ public class KundenHandler implements Serializable {
 		warenkorb = new HashMap<String, Integer>();
 		isbnListe = new ArrayList<String>();
 		return "Vielen Dank für Ihre Bestellung!";
+	}
+	
+	public void clear() {
+		warenkorb.clear();
+		isbnListe.clear();
 	}
 	
 }

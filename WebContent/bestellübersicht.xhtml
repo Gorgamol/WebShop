@@ -15,11 +15,16 @@
 			            <td width="20%">
 			            		#{kundenHandler.warenkorb[isbn]}		            
 			            </td>
-			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).preis}</td>
+			            <td width="20%">#{buchHandler.getBuchByISBN(isbn).preis} EUR</td>
 			          </tr>
 			      </table>
 			     </h:form>
 		</ui:repeat>
+		<b:row>
+		 	<b:column offset="6">
+				<h2>Gesamtpreis: #{kundenHandler.getGesamtpreis()} EUR</h2>
+			</b:column>
+		</b:row>
 			<h:form>
 				<b:row>
 					<b:column span="6">
