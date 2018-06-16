@@ -109,7 +109,7 @@ public class Buch {
 	}
 	
 	public void setPreis(String preis) {
-		this.preis = preis + " EUR";
+		this.preis = preis;
 	}
 	
 	public String getBuchdetails() {

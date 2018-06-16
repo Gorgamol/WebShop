@@ -51,14 +51,17 @@ public class Datenbank {
 		return kvs.get(key);
 	}
 	
-	public String[] getKategorien() {
-		String[] tmpListe = kvs.get(key).substring(11).split("-");
-		String[] TESTOR = tmpListe[0].split("\"");
-		for(String s : TESTOR) {
-			System.out.println(s);
+	public Buch getBuchByISBN(String isbn13) {
+		gson = new Gson();
+		String[] tmpBuchliste;
+		tmpBuchliste = getDatenbankInhalt().substring(11).split("-");
+		Buch tmpBuch = new Buch();
+		for(String s : tmpBuchliste) {
+			if(s.contains("\"isbn13\":\"" + isbn13)) {
+				tmpBuch = gson.fromJson(s, Buch.class);
+			}
 		}
-		return null;
+		return tmpBuch;
 	}
-	
 	
 }

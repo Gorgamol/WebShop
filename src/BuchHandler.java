@@ -17,7 +17,7 @@ public class BuchHandler implements Serializable {
 	private DataModel<Buch> buchliste;
 	private String[] tmpBuchliste;
 	private String currentBook;
-	
+
 	public String getCurrentBook() {
 		return currentBook;
 	}

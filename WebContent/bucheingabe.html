@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Bucheingabe</title>
+
+</head>
+<body>    
+	<!-- Page Content -->
+	<div class="container">
+
+		<header class="jumbotron my-2">
+			<div class="container bg-faded">
+
+        <form action="Backend" method="post">
+
+				<h1 class="title">Bucheingabe</h1>
+
+				<div class="form-group row">
+					<div class="col-6">
+              <input type="text" name="buchtitel" class="form-control" placeholder="Buchtitel" required>
+					</div>
+				</div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="autor" class="form-control" placeholder="Autor" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3">
+              <input type="text" name="kategorie" class="form-control" placeholder="Kategorie" required>
+            </div>
+            <div class="col-3">
+              <select class="form-control form-control-sm" name="buchart" required>
+                <option value="" hidden>Buchart</option>
+                <option value="Hard Cover">Hard Cover</option>
+                <option value="Taschenbuch">Taschenbuch</option>
+                <option value="Paper Back">Paper Back</option>
+                <option value="E-Book">E-Book</option>
+              </select>
+            </div>
+          </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="verlag" class="form-control" placeholder="Verlag" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="sprache" class="form-control" placeholder="Sprache" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="isbn10" class="form-control" placeholder="ISBN-10" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="isbn13" class="form-control" placeholder="ISBN-13" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-2">
+              <input type="text" name="hoehe" class="form-control" placeholder="Höhe (cm)" required>
+          </div>
+          <div class="col-2">
+              <input type="text" name="breite" class="form-control" placeholder="Breite (cm)" required>
+          </div>
+          <div class="col-2">
+              <input type="text" name="tiefe" class="form-control" placeholder="Tiefe (cm)" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="col-6">
+              <input type="text" name="preis" class="form-control" placeholder="Preis (€)" required>
+          </div>
+        </div>
+
+        <div class="row">
+					<div class="col-6">
+						<textarea class="form-control" name="buchdetails" rows="3" placeholder="Buchdetails" required></textarea>
+					</div>
+				</div>
+
+				<div class="mt-4 text-left">
+					<button type="submit" value="absenden" class="btn btn-primary">Absenden</button>
+				</div>
+
+      </form>
+
+			</div>
+		</header>
+	</div>
+
+</body>
+</html>
